@@ -32,13 +32,13 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	http.HandleFunc("/", hf)
+	http.HandleFunc("/api", hf)
 
 	h, err := repo.GQLPlaygroundHandler()
 	if err != nil {
 		log.Fatal(err)
 	}
-	http.Handle("/ui", h)
+	http.Handle("/api/ui", h)
 
 	if *port != -1 {
 		portStr = fmt.Sprintf(":%d", *port)
